@@ -1,0 +1,73 @@
+.brands{
+    grid-row: 2 / 3;
+    grid-column: full-start / full-end;
+
+    // justify-self: center;
+    // align-self: center;
+
+    &--heading{
+        display:flex;
+        justify-content:center;
+        align-content: center;
+        background-color:  #e5e8e8;
+        color: #192642;
+        font-size: 2rem;
+        padding: 1rem;
+    }
+    &__images{
+        // display: flex;
+        // flex-direction: row;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+        grid-gap: 2rem;
+        // grid-template-columns: min-content 1fr;
+        background-color:#f7f9f9;
+
+        @include respond(Phone){
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            // margin: 0 2rem;
+        }
+
+
+        & > * {  //al direct childrens of images.
+            // width: 25%;
+            // height: 25%;
+            // width: 100%;
+            // height: 100%;
+            border-radius: .5rem;
+            opacity: .8;
+
+        }
+
+
+        &--1{
+            width: 100%;
+            height: 100%;
+            // border-radius:5rem;
+            
+        }
+        &--2{
+
+            width: 100%;
+            height: 100%;
+            // width: 24.9%;
+            // height: 25%;
+
+            // background-image: url("../img/brand-img-2.jpg");
+            // background-repeat: no-repeat;
+            // background-size: cover; /*set the elem in the parent box viewport */ 
+            // background-position: center;  /* top of img is never crop. */
+            // opacity: 1;
+        }
+        &--3{
+            width: 100%;
+            height: 100%;
+            
+        }
+        &--4{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

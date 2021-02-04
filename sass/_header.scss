@@ -1,0 +1,205 @@
+.header{
+    grid-row: 1 / 2;
+    grid-column: full-start / full-end;
+
+    display: grid;
+    // grid-template-columns: repeat(auto-fit,minmax(rem, 1fr));
+    grid-gap: 1.5rem;
+
+    align-items: center;
+
+    background-image: url(../img/header-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    // background-attachment: fixed;
+    background-position: center;
+
+    @include respond(tab-port){
+        background: transparent;
+        background-color: #283747;
+        background-size: contain;
+    }
+
+    &__left{
+
+        grid-column: 1 / 8;
+
+        background-color: #192642;
+        color: #fff;
+        padding: 4vh 0vw 0vh 8vw;
+        // padding: 4rem 2rem 5rem 8rem;
+
+        clip-path: polygon(0 0,80% 0,100% 100%,0 100%);
+
+        @include respond(tab-port){
+            // background-color: transparent;
+            clip-path:none; 
+        }
+
+        &--logo{
+            font-family: $font-display;
+            font-weight: 500;
+            font-size: 3.5rem;
+            justify-self: center;
+            @include respond(tab-port){
+                font-weight: 500;
+                font-size: 4.5rem;
+            }
+            
+            span{
+                background-color:  #86a9f4;
+                @include respond(tab-port){
+                    background-color: #192642;
+                }
+            }
+
+        }
+        &--heading{
+            // margin: 12rem 5rem 0rem 0rem;
+            margin: 20vh 5vw 0vh 0vw;
+            font-size: 2rem;
+
+            @include respond(tab-port){
+                margin: 10vh 3vw 0vh 0vw;
+            }
+
+        }
+        &--para{
+            font-size: 2rem;
+            // font-weight: 500;
+            font-family: $font-primary;
+            padding-right: 2rem;
+            margin-right: 2rem;
+
+            @include respond(tab-land){
+                margin-right: 4rem;
+            }
+            @include respond(tab-port){
+                font-size: 2.5rem;
+            }
+        }
+
+        &__search{
+
+            // grid-column: 2 / 6;
+            display: flex; //make an flex item as flex container (nested flexbox)
+            align-items: stretch;
+            justify-content: stretch;
+            // margin: 2rem 2rem 5rem 0rem;
+            margin: 2vh 2vw 5vh 0;
+
+            &--input{
+
+                font-family: $font-primary;
+                font-size: 2rem;
+                font-weight: bold;
+                color: black;
+                border: .1rem solid gray;
+                padding: 1rem 2rem;
+                border-radius: 100px;
+                width: 80%;
+                @include respond(tab-land){
+                    width: 70%;
+                }
+                transition: all .2s;
+                margin-right: -3.25rem; //so button will move on top of input field.
+
+                &:focus {
+                    outline: none;
+                    width: 90%;
+                }
+
+            }
+            &--button{
+                border: none;
+                background-color: var(--color-grey-light-2);
+                transition: all .2s;
+
+                &:focus {
+                    outline: none;
+                }
+                &:active {
+                    transition: translateY(2px);
+                }
+            }
+            &--icon{
+                height: 2rem;
+                width: 2rem;
+                fill: var(--color-grey-dark-2); //to change the icon svg color
+            }
+        }
+    }
+
+    &__right{
+        grid-column: 8 / 13;
+        justify-self: center;
+        align-self: start;
+        
+        display: flex;
+
+        // padding: 4rem 2rem 2rem 0rem;
+        padding: 4vh 0vw 2vh 0vw;
+
+        
+        @include respond(tab-port){
+            grid-column: 1 / 8;
+            padding: 0vh 0vw 0vh 0vw;
+            margin: 0vh 2vw 4vh 8vw; 
+
+            justify-self: start;
+            align-self: center;
+        }
+
+        &__btn{
+
+            
+
+            // text-transform: uppercase;
+            text-decoration: none;
+            padding: 1rem 2rem; 
+            display: inline-block;
+            border-radius: 10rem;
+            background-color: transparent;
+            color: #fff;
+            font-size: 1.8rem;
+            @include respond(tab-land){
+                padding: .8rem;
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+            @include respond(tab-port){
+                font-size: 2.5rem;
+                padding: 1rem 2rem; 
+                font-weight: 100;
+            }
+            @include respond(phone){
+                font-size: 1.9rem;
+                font-weight: bold;
+                padding: 1rem 1.5rem;
+            }
+            border: none; //remove the default border of btn.
+            cursor: pointer;
+
+            // &--aboutBtn{
+            
+            // }
+            // &--helpBtn{
+                
+            // }
+            // &--portfolioBtn{
+                
+            // }
+            // &--loginBtn{
+                
+            // }
+            // &--signupBtn{
+                
+            // }
+            &--sellBtn{
+                border: 2px solid #fff;
+                border-radius: 25px;
+                padding: 1rem 3rem;
+            }
+        }
+    }
+}

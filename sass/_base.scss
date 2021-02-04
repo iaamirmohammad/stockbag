@@ -1,0 +1,72 @@
+// COLOR VARIABLES
+$color-primary: #c69963;
+$color-primary-dark: #B28451;
+
+$color-secondary: #101d2c;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #54483A;
+$color-grey-dark-2: #6D5D4B;
+
+// FONT VARIABLES
+$font-primary: 'Nunito', sans-serif;
+$font-display: 'Josefin Sans', sans-serif;
+
+//Responsive Breakpoints
+// $bp-largest: 75em; //this is for 1200px, 1200 / 16 = 75em
+// $bp-large: 62.5em; //this is for 1200px, 1000 / 16 = 62.5em
+// $bp-medium: 50em; //this is for 800px, 800 / 16 = 50em
+// $bp-small: 37.5em; //this is for 600px, 600 / 16 = 37.5em
+
+
+// Global settings
+*,
+*::before,
+*::after{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: inherit;  //inherit from html
+}
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; // 1rem = 10px , 10px/16px = 62.5% 
+
+    // @include phone {  // width < 900
+    //     font-size: 50%; //want 1rem = 8px; 8/16 = 0.5 = 50%
+    // }
+
+    //Always put the larger media queries before the smaller one.
+    @include respond(tab-land){ // < 1200px
+        font-size: 56.25%; //normally 1rem = 10px, here want 1 rem = 9px; 9/16 = 0.5625 =56.25%
+    }
+    @include respond(tab-port){  // < 900px
+        font-size: 50%; //wnat 1rem = 8px ; 8/16 = 0.5 = 50%
+    }
+    @include respond(phone){ // < 600px
+        font-size: 43.75%; // wnat 1rem = 7px 7/16 = = 0.4375 = 43.75
+    }
+    @include respond(big-desktop){ // > 1800px
+        font-size: 75%; // 1rem = 12px;  12/16 =0.75 = 75%
+    }
+}
+body{
+    font-family: $font-primary;
+    color: $color-grey-dark-2;
+    font-weight: 300;
+    line-height: 1.6;
+
+}
+
+.container{  //this is grid container
+    display: grid;
+    grid-template-rows: repeat(4, min-content);
+    grid-template-columns: [full-start] 1fr [center-start] repeat(10, [col-start] minmax(min-content, 1fr) [col-end])
+                            [center-end] 1fr [full-end];
+
+    background-color:#f7f9f9;
+
+    // align-content: center;
+    // justify-content: center;
+}
